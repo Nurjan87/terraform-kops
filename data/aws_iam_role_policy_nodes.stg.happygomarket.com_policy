@@ -1,0 +1,59 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeInstances",
+        "ec2:DescribeRegions"
+      ],
+      "Resource": [
+        "*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetBucketLocation",
+        "s3:GetEncryptionConfiguration",
+        "s3:ListBucket",
+        "s3:ListBucketVersions"
+      ],
+      "Resource": [
+        "arn:aws:s3:::stg.happygomarket.com"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:Get*"
+      ],
+      "Resource": [
+        "arn:aws:s3:::stg.happygomarket.com/stg.happygomarket.com/addons/*",
+        "arn:aws:s3:::stg.happygomarket.com/stg.happygomarket.com/cluster.spec",
+        "arn:aws:s3:::stg.happygomarket.com/stg.happygomarket.com/config",
+        "arn:aws:s3:::stg.happygomarket.com/stg.happygomarket.com/instancegroup/*",
+        "arn:aws:s3:::stg.happygomarket.com/stg.happygomarket.com/pki/issued/*",
+        "arn:aws:s3:::stg.happygomarket.com/stg.happygomarket.com/pki/private/kube-proxy/*",
+        "arn:aws:s3:::stg.happygomarket.com/stg.happygomarket.com/pki/private/kubelet/*",
+        "arn:aws:s3:::stg.happygomarket.com/stg.happygomarket.com/pki/ssh/*",
+        "arn:aws:s3:::stg.happygomarket.com/stg.happygomarket.com/secrets/dockerconfig"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ecr:GetAuthorizationToken",
+        "ecr:BatchCheckLayerAvailability",
+        "ecr:GetDownloadUrlForLayer",
+        "ecr:GetRepositoryPolicy",
+        "ecr:DescribeRepositories",
+        "ecr:ListImages",
+        "ecr:BatchGetImage"
+      ],
+      "Resource": [
+        "*"
+      ]
+    }
+  ]
+}
