@@ -3,7 +3,7 @@ echo $0
 if [ "$0" = "$BASH_SOURCE" ]
 then
    echo "$O: Please source this file."
-   echo "e.g" source ./setenv configurations/data-rnd-us-vet1-v1"
+   echo "e.g source ./setenv configurations/data-rnd-us-vet1-v1"
    return 1
 fi
 
