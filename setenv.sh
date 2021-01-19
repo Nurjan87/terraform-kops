@@ -31,14 +31,14 @@ fi
 
 
 
-# Get inv from DATAFILE
+# Get env from DATAFILE
 ENVIRONMENT=$(sed -nr 's/^\s*environment\s*=\s*"([^"]*)".*$/\1p' "$DATAFILE")
 S3BUCKET=$(sed -nr 's/^\s*s3_backet\s*=\s*"([^"]*)".*$/\1p' "$DATAFILE")
 S3BUCKETPROJ=$(sed -nr 's/^\s*s3_folder_project\s*=\s*"([^"]*)".*$/\1p' "$DATAFILE")
-S3BUCKETREGION=$(sed -nr 's/^\s*s3_folder_region\s*=\s*"([^"]*)".*$/\1p' "$DATAFILE"))
-S3BUCKETTYPE=$(sed -nr 's/^\s*s3_folder_type\s*=\s*"([^"]*)".*$/\1p' "$DATAFILE"))
-S3BUCKETFILE=$(sed -nr 's/^\s*s3_tfstate_file\s*=\s*"([^"]*)".*$/\1p' "$DATAFILE"))
-BASE_DOMAIN=$(sed -nr 's/^\s*base_domain\s*=\s*"([^"]*)".*$/\1p' "$DATAFILE"))
+S3BUCKETREGION=$(sed -nr 's/^\s*s3_folder_region\s*=\s*"([^"]*)".*$/\1p' "$DATAFILE")
+S3BUCKETTYPE=$(sed -nr 's/^\s*s3_folder_type\s*=\s*"([^"]*)".*$/\1p' "$DATAFILE")
+S3BUCKETFILE=$(sed -nr 's/^\s*s3_tfstate_file\s*=\s*"([^"]*)".*$/\1p' "$DATAFILE")
+BASE_DOMAIN=$(sed -nr 's/^\s*base_domain\s*=\s*"([^"]*)".*$/\1p' "$DATAFILE")
 if [ -z "$ENVIRONMENT" ]
 then
    echo "setenv: 'environment' variable not set in configuration file."
@@ -46,12 +46,12 @@ then
 fi
 if [ -z "$S3BUCKET" ]
 then
-   echo "setenv: 's3_bucket' varable not set in configuration file."
+   echo "setenv: 's3_bucket' variable not set in configuration file."
    return 1
 fi
 if [ -z "$S3BUCKETPROJ" ]
 then
-   echo "setenv: 's3_folder_project' varable not set in configuration file."
+   echo "setenv: 's3_folder_project' variable not set in configuration file."
    return 1
 fi
 if [ -z "$S3BUCKETREGION" ]
@@ -71,7 +71,7 @@ then
 return 1
 fi
 cat << EOF > "$DIR/backend.tf"
-terrafom {
+terraform {
 backend "s3" {
 bucket = "${S3BUCKET}"
 key = "${S3BUCKETPROJ}/${S3BUCKETREGION}/${S3BUCKETTYPE}/${ENVIRONMENT}/${S3TFSTATEFILE}"
