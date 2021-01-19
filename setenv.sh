@@ -80,5 +80,5 @@ region = "${S3BUCKETREGION}"
 }
 EOF
 cat backend.tf
-rm -rf .terrafom/terraform.tfstate
+rm -rf .terraform/terraform.tfstate
 terraform_0.11.14 init
