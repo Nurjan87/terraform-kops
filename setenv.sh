@@ -9,8 +9,8 @@ fi
 
 if [ -z "$1" ]
 then 
-   ehco "setenv: you must provide the name of the configuration file."
-   ehco "e.g. cource ./setenv configuration/data-rnd-us-vet1-v1"
+   ehco "setenv: You must provide the name of the configuration file."
+   ehco "e.g. source ./setenv configurations/data-rnd-us-vet1-v1"
    return 1
 fi
 
@@ -19,12 +19,12 @@ fi
 
 # Get directory we are running from
 DIR=$(pwd)
-DATAFILE="DIR/1"
-if [ ! -d "$DIR/configuration" ]; then
+DATAFILE="$DIR/$1"
+if [ ! -d "$DIR/configurations" ]; then
     echo "setenv: Must be run from the root directory of the terraform project."
     return 1
 fi
-if [ ! -f "DATAFILE" ]; then
+if [ ! -f "$DATAFILE" ]; then
     echo "setenv: Configuration file not found: $DATAFILE"
     return 1
 fi
