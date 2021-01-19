@@ -59,7 +59,7 @@ then
    echo "setenv: 's3_folder_region' variable not set in configuration file."
    return 1
 fi
-if [ -z "$S3BUCKETTYPE]    
+if [ -z "$S3BUCKETTYPE" ]    
 then
    echo "setenv: 's3_folder_type' variable not set in configuration file."
    return 1
