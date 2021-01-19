@@ -1,0 +1,6 @@
+envirnment = "dev"
+s3_bucket = "dev.happygomarket.com"
+s3_folder_project = "application"
+s3_folder_region = "us-west-1"
+s3_folder_type = "state"
+s3_folder_file = "infrastructure.tfstate"
